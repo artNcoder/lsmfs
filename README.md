@@ -1,63 +1,73 @@
-# lsm_fuse
+# LSMFS
 
-基于LSM及FUSE架构的文件系统
+- en [English](README.md)
 
-# 所需依赖
-**FUSE库**
-- 安装FUSE开发库
+- zh_CN [简体中文](README.zh_CN.md)
 
-    ```bash
-    sudo apt-get install libfuse-dev
-    ```
-**Rocksdb库**
-- 安装Rocksdb和相关依赖
-    ```bash
-    sudo apt-get install build-essential
-    sudo apt-get install libsnappy-dev zlib1g-dev libbz2-dev libgflags-dev
-    ```
+A file system based on the LSM-tree and FUSE architectures.
 
--  下载 RocksDB 源码
+# Required Dependencies
 
-    ```bash
-    git clone https://github.com/facebook/rocksdb.git
-    ```
+**FUSE Library**
 
-# 使用方法
-- 确保rocksdb源码与lsm_fuse源码在同一目录下，结构如下   
-\- 当前目录   
-&ensp;&ensp;\-- lsm_fuse   
-&ensp;&ensp;\-- rocksdb   
-- 编译
+- Install the FUSE development library.
 
-    ```bash
-    cd lsm_fuse
-    ./compile.sh
-    ```
+```
+sudo apt-get install libfuse-dev
+```
 
-- 挂载运行文件系统
+**Rocksdb Library**
 
-    ```bash
-    mkdir /tmp/mnt
-    ./lsmfs /tmp/mnt mydb
-    ```
-- 测试文件系统
+- Install Rocksdb and related dependencies.
 
-    ```bash
-    # 使用常用的命令测试文件系统，如touch，cat，vi
-    cd /tmp/mnt
-    ```
+```
+sudo apt-get install build-essential
+sudo apt-get install libsnappy-dev zlib1g-dev libbz2-dev libgflags-dev
+```
 
-- 卸载文件系统
+- Download the RocksDB source code.
 
-    ```bash
-    fusermount -u /tmp/mnt
-    ```
+```
+git clone https://github.com/facebook/rocksdb.git
+```
 
+# Usage
 
-# 兼容性
-- 通过了文件系统测试套件pjdfstests中的8832个基本文件操作相关的测试用例。
+- Ensure that the RocksDB source code and the lsm_fuse source code are in the same directory with the following structure:
 
+- - Current Directory
 
+  -- lsm_fuse
 
+  -- rocksdb
 
+- Compile the code.
 
+```
+cd lsm_fuse
+./compile.sh
+```
+
+- Mount and run the file system.
+
+```
+mkdir /tmp/mnt
+./lsmfs /tmp/mnt mydb
+```
+
+- Test the file system.
+
+```
+# Use common commands to test the file system, such as touch, cat, and vi.
+cd /tmp/mnt
+```
+
+- Unmount the file system.
+
+```
+fusermount -u /tmp/mnt
+```
+
+# Compatibility
+
+- Passed 8832 basic file operation-related test cases in the file system test suite pjdfstests.
