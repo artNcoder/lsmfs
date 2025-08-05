@@ -27,7 +27,7 @@
 
 下图展示了 LSMFS 的整体架构：
 
-![LSMFS 架构图](pics/LSMFS_structure.png)
+<img src="pics/LSMFS_structure.png" alt="LSMFS 架构图" width="50%" />
 
 ---
 

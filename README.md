@@ -27,7 +27,7 @@ A high-performance file system built on top of **LSM-tree** and **FUSE** archite
 
 The following diagram illustrates the architecture of LSMFS:
 
-![LSMFS Architecture](pics/LSMFS_structure.png)
+<img src="pics/LSMFS_structure.png" alt="LSMFS Architecture" width="50%" />
 
 ---
 
