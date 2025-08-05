@@ -9,7 +9,7 @@ A high-performance file system built on top of **LSM-tree** and **FUSE** archite
 ## 📋 Table of Contents
 
 - [Overview](#overview)
-- [System Architecture](#System Architecture)
+- [System Architecture](#System_Architecture)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
 - [Usage](#usage)
