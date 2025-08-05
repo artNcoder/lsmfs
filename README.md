@@ -1,73 +1,133 @@
 # LSMFS
 
-- en [English](README.md)
+A high-performance file system built on top of **LSM-tree** and **FUSE** architectures.
 
-- zh_CN [简体中文](README.zh_CN.md)
+[🇺🇸 English](README.md) | [🇨🇳 简体中文](README.zh_CN.md)
 
-A file system based on the LSM-tree and FUSE architectures.
+---
 
-# Required Dependencies
+## 📋 Table of Contents
 
-**FUSE Library**
+- [Overview](#overview)
+- [System Architecture](#System Architecture)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Compatibility](#compatibility)
 
-- Install the FUSE development library.
+---
 
-```
+## 📖 Overview
+
+**LSMFS** is a custom file system leveraging [RocksDB](https://github.com/facebook/rocksdb) for storage and [FUSE](https://github.com/libfuse/libfuse) for user-space mounting. It supports high-throughput file operations and is suitable for testing or experimental environments.
+
+---
+
+## 🏗️ System Architecture
+
+The following diagram illustrates the architecture of LSMFS:
+
+![LSMFS Architecture](pics/LSMFS_structure.png)
+
+---
+
+## 📦 Dependencies
+
+### FUSE
+
+Install the FUSE development library:
+
+```bash
 sudo apt-get install libfuse-dev
 ```
 
-**Rocksdb Library**
+### RocksDB
 
-- Install Rocksdb and related dependencies.
+Install RocksDB and its dependencies:
 
-```
+```bash
 sudo apt-get install build-essential
 sudo apt-get install libsnappy-dev zlib1g-dev libbz2-dev libgflags-dev
 ```
 
-- Download the RocksDB source code.
+Clone the RocksDB source code:
 
-```
+```bash
 git clone https://github.com/facebook/rocksdb.git
 ```
 
-# Usage
+------
 
-- Ensure that the RocksDB source code and the lsm_fuse source code are in the same directory with the following structure:
+## ⚙️ Installation
 
-- - Current Directory
-
-  -- lsm_fuse
-
-  -- rocksdb
-
-- Compile the code.
+Ensure the directory structure as follows:
 
 ```
+Current Directory
+├── lsm_fuse     # LSMFS source code
+└── rocksdb      # Cloned RocksDB source
+```
+
+Build the project:
+
+```bash
 cd lsm_fuse
 ./compile.sh
 ```
 
-- Mount and run the file system.
+------
 
-```
+## 🚀 Usage
+
+### Mount the File System
+
+```bash
 mkdir /tmp/mnt
 ./lsmfs /tmp/mnt mydb
 ```
 
-- Test the file system.
+### Interact with the File System
 
-```
-# Use common commands to test the file system, such as touch, cat, and vi.
+You can now use common commands such as `touch`, `cat`, `vi`, etc.
+
+```bash
 cd /tmp/mnt
+touch testfile
+cat testfile
 ```
 
-- Unmount the file system.
+### Unmount
 
-```
+```bash
 fusermount -u /tmp/mnt
 ```
 
-# Compatibility
+------
 
-- Passed 8832 basic file operation-related test cases in the file system test suite pjdfstests.
+## ✅ Compatibility
+
+- Successfully passed **8,832** file operation-related test cases using the `pjdfstests` suite.
+
+------
+
+## 📄 License
+
+Licensed under the [Apache License 2.0](LICENSE).
+
+------
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+## 🙏 Acknowledgements
+
+Special thanks to [ViveNAS](https://github.com/cocalele/ViveNAS) for providing inspiration and reference for this project.
+
+------
+
+## 📫 Contact
+
+If you have any questions or suggestions, feel free to open an issue or contact the maintainer.
